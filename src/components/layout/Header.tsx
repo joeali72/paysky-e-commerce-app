@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { ShoppingCart, LogIn, LogOut, Menu, Search } from "lucide-react";
+import { ShoppingCart, LogIn, LogOut, Menu, Search, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import {
   Sheet,
   SheetContent,
@@ -96,11 +96,15 @@ const Header: React.FC = () => {
             {isAuthenticated ? (
               <Popover>
                 <PopoverTrigger asChild>
-                  <Button variant="ghost" size="icon" className="rounded-full">
-                    <Avatar className="h-8 w-8">
-                      <AvatarImage src="" />
-                      <AvatarFallback className="bg-primary text-primary-foreground">
-                        {user?.name.firstname[0]}
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="rounded-full w-fit focus:border-0 focus:ring-0 focus:ring-transparent focus-visible:ring-0 focus-visible:ring-transparent focus:outline-none focus-visible:outline-none bg-transparent transition-all ease-in-out duration-150 hover:bg-primary hover:text-white hover:border-primary"
+                  >
+                    <Avatar className="w-full flex gap-1 items-center justify-center bg-transparent p-2 text-inherit">
+                      <User className="size-5 text-inherit" />
+                      <AvatarFallback className="text-inherit max-w-fit bg-inherit focus:border-0 focus:ring-0 focus:ring-transparent focus-visible:ring-0 focus-visible:ring-transparent">
+                        {user?.name.firstname}
                       </AvatarFallback>
                     </Avatar>
                   </Button>

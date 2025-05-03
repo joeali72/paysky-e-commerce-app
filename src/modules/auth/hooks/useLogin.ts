@@ -8,7 +8,7 @@ import { toast } from "@/hooks/use-toast";
 import { useGetUserProfile } from "../resources/useGetUserProfile";
 import useAuthStore from "../store/authStore";
 
-export default function useAuth() {
+export default function useLogin() {
   const navigate = useNavigate();
   const location = useLocation();
   const { isPending: isPendingLogin, mutate: mutateLogin } = useLoginAPI();
@@ -54,5 +54,5 @@ export default function useAuth() {
     });
   };
 
-  return { loginForm, isPendingLogin, onSubmit };
+  return { loginForm, isPendingLogin, onSubmit, };
 }

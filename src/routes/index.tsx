@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import {
   createBrowserRouter,
   RouterProvider,
@@ -12,12 +12,26 @@ import Header from "@/components/layout/Header";
 import { Toaster } from "@/components/ui/toaster";
 
 import HomePage from "@/pages/HomePage";
-// import ProductsPage from "@/pages/ProductsPage";
-// import ProductDetailsPage from "@/pages/ProductDetailsPage";
-// import CartPage from "@/pages/CartPage";
-// import LoginPage from "@/pages/LoginPage";
-// import CheckoutPage from "@/pages/CheckoutPage";
-// import useAuthStore from "@/store/authStore";
+const LoginPage = React.lazy(() => import("@/pages/auth/LoginPage"));
+import useAuthStore from "@/modules/auth/store/authStore";
+import { Loader } from "@/components/ui/loader";
+
+// Protected route component
+const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
+  const { isAuthenticated } = useAuthStore();
+
+  if (!isAuthenticated && window.location.pathname !== "/login") {
+    return <Navigate to="/login" replace />;
+  }
+
+  if (isAuthenticated && window.location.pathname === " /login") {
+    return <Navigate to="/" replace />;
+  }
+
+  return <>{children}</>;
+};
 
 // Layout component with header
 const Layout: React.FC = () => {
@@ -51,6 +65,16 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <HomePage />,
+      },
+      {
+        path: "login",
+        element: (
+          <ProtectedRoute>
+            <Suspense fallback={<Loader message="Loading..." />}>
+              <LoginPage />
+            </Suspense>
+          </ProtectedRoute>
+        ),
       },
       {
         path: "*",
