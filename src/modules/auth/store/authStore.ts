@@ -1,6 +1,6 @@
+import { AuthState, User } from "@/types/auth.model";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import { AuthState, User } from "../types/auth.model";
 
 interface AuthStore extends AuthState {
   login: (token: string, userProfile: User) => Promise<void>;

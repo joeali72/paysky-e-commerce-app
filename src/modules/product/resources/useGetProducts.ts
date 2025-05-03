@@ -9,12 +9,17 @@ const endpoint = (category?: string) =>
 
 type ReturnType = UseQueryResult<Product[], AxiosError>;
 
-export function useGetProducts(category?: string): ReturnType {
+export function useGetProducts(
+  category?: string,
+  enabled?: boolean
+): ReturnType {
   const queryFn = async () => {
     const { data } = await api.get<Product[]>(endpoint(category)); // Specifying IData ensures proper typing for the response.
     return data;
   };
 
   // Wrap the endpoint in an array to satisfy the QueryKey type.
-  return useQueryWrapper([endpoint(category)], queryFn, { enabled: false });
+  return useQueryWrapper([endpoint(category)], queryFn, {
+    enabled: enabled ?? false,
+  });
 }

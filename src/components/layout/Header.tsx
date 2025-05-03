@@ -17,13 +17,17 @@ import {
 } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
 import useAuthStore from "@/modules/auth/store/authStore";
-import SearchDialog from "../search/SearchDialog";
+import SearchDialog from "../SearchDialog";
+import { Badge } from "../ui/badge";
+import useCartStore from "@/modules/product/store/cartStore";
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const { isAuthenticated, user, logout } = useAuthStore();
+  const { getItemsCount } = useCartStore();
+  const cartItemsCount = getItemsCount();
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -89,6 +93,14 @@ const Header: React.FC = () => {
                 className="text-white dark:text-gray-200 hover:text-primary p-2 hover:border-black"
               >
                 <ShoppingCart className="h-5 w-5" />
+                {cartItemsCount > 0 && (
+                  <Badge
+                    className="absolute -top-2 -right-3 bg-primary"
+                    variant="default"
+                  >
+                    {cartItemsCount}
+                  </Badge>
+                )}
               </Button>
             </Link>
 
