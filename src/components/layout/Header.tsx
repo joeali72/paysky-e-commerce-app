@@ -20,6 +20,7 @@ import useAuthStore from "@/screens/auth/store/authStore";
 import SearchDialog from "../SearchDialog";
 import { Badge } from "../ui/badge";
 import useCartStore from "@/store/useCartStore";
+import Logo from "@/assets/logo.png";
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -52,7 +53,7 @@ const Header: React.FC = () => {
             to="/"
             className="font-bold text-xl md:text-2xl text-primary transition-colors hover:text-primary/90"
           >
-            Paysky
+            <img src={Logo} alt="Paysky" width={120} height={40} />
           </Link>
 
           {/* Desktop Navigation */}
