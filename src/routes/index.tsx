@@ -10,11 +10,18 @@ import { ThemeProvider } from "next-themes";
 
 import Header from "@/components/layout/Header";
 import { Toaster } from "@/components/ui/toaster";
-
-import HomePage from "@/pages/HomePage";
-const LoginPage = React.lazy(() => import("@/pages/auth/LoginPage"));
 import useAuthStore from "@/modules/auth/store/authStore";
 import { Loader } from "@/components/ui/loader";
+
+import HomePage from "@/pages/HomePage";
+import ErrorBoundary from "@/components/ErrorBoundary";
+const LoginPage = React.lazy(() => import("@/pages/auth/LoginPage"));
+const ProductsPage = React.lazy(() => import("@/pages/products/ProductsPage"));
+const ProductDetailsPage = React.lazy(
+  () => import("@/pages/products/ProductDetailsPage")
+);
+const CartPage = React.lazy(() => import("@/pages/cart/CartPage"));
+const CheckoutPage = React.lazy(() => import("@/pages/checkout/CheckoutPage"));
 
 // Protected route component
 const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({
@@ -39,7 +46,11 @@ const Layout: React.FC = () => {
     <div className="min-h-screen flex flex-col">
       <Header />
       <main className="flex-1 pt-20">
-        <Outlet />
+        <ErrorBoundary
+          fallback={<div>Something went wrong while rendering the page.</div>}
+        >
+          <Outlet />
+        </ErrorBoundary>
       </main>
       <Toaster />
     </div>
@@ -72,6 +83,40 @@ const router = createBrowserRouter([
           <ProtectedRoute>
             <Suspense fallback={<Loader message="Loading..." />}>
               <LoginPage />
+            </Suspense>
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "products",
+        element: (
+          <Suspense fallback={<Loader message="Loading..." />}>
+            <ProductsPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: "product/:id",
+        element: (
+          <Suspense fallback={<Loader message="Loading..." />}>
+            <ProductDetailsPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: "cart",
+        element: (
+          <Suspense fallback={<Loader message="Loading..." />}>
+            <CartPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: "checkout",
+        element: (
+          <ProtectedRoute>
+            <Suspense fallback={<Loader message="Loading..." />}>
+              <CheckoutPage />
             </Suspense>
           </ProtectedRoute>
         ),

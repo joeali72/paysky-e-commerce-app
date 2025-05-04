@@ -26,6 +26,10 @@ export default tseslint.config(
           "ts-expect-error": "allow-with-description", // optional safety
         },
       ],
+      "@typescript-eslint/no-unused-vars": [
+        "warn",
+        { argsIgnorePattern: "^_", varsIgnorePattern: "^_" },
+      ],
     },
   }
 );

@@ -38,6 +38,7 @@ const useCartStore = create<CartState>()(
 
       removeItem: (productId: number) => {
         const { items } = get();
+
         set({ items: items.filter((item) => item.product.id !== productId) });
       },
 

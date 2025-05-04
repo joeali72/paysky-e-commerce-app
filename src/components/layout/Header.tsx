@@ -72,7 +72,7 @@ const Header: React.FC = () => {
           </nav>
 
           {/* Search, Cart, User Actions */}
-          <div className="flex items-center space-x-3 md:space-x-5">
+          <div className="flex items-center space-x-2 md:space-x-5">
             {/* Search */}
             <Button
               variant="ghost"
@@ -111,11 +111,11 @@ const Header: React.FC = () => {
                   <Button
                     variant="ghost"
                     size="icon"
-                    className="rounded-full w-fit focus:border-0 focus:ring-0 focus:ring-transparent focus-visible:ring-0 focus-visible:ring-transparent focus:outline-none focus-visible:outline-none bg-transparent transition-all ease-in-out duration-150 hover:bg-primary hover:text-white hover:border-primary"
+                    className="rounded-full w-fit focus:border-0 focus:ring-0 focus:ring-transparent focus-visible:ring-0 focus-visible:ring-transparent focus:outline-none focus-visible:outline-none bg-transparent transition-all ease-in-out duration-150 hover:bg-primary hover:text-white hover:border-primary px-1 md:px-3"
                   >
                     <Avatar className="w-full flex gap-1 items-center justify-center bg-transparent p-2 text-inherit">
                       <User className="size-5 text-inherit" />
-                      <AvatarFallback className="text-inherit max-w-fit bg-inherit focus:border-0 focus:ring-0 focus:ring-transparent focus-visible:ring-0 focus-visible:ring-transparent">
+                      <AvatarFallback className="text-inherit max-w-fit bg-inherit focus:border-0 focus:ring-0 focus:ring-transparent focus-visible:ring-0 focus-visible:ring-transparent capitalize">
                         {user?.name.firstname}
                       </AvatarFallback>
                     </Avatar>
@@ -123,7 +123,7 @@ const Header: React.FC = () => {
                 </PopoverTrigger>
                 <PopoverContent className="w-56 mt-1 p-2">
                   <div className="flex flex-col space-y-1 pb-2">
-                    <p className="text-sm font-medium">
+                    <p className="text-sm font-medium capitalize">
                       {user?.name.firstname} {user?.name.lastname}
                     </p>
                     <p className="text-xs text-muted-foreground">
@@ -158,8 +158,12 @@ const Header: React.FC = () => {
             {/* Mobile Menu Button */}
             <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" className="md:hidden">
-                  <Menu className="h-5 w-5" />
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="md:hidden p-1.5 text-white transition-all ease-in-out duration-150 hover:bg-secondary hover:text-primary hover:border-primary"
+                >
+                  <Menu className="size-5" />
                 </Button>
               </SheetTrigger>
               <SheetContent side="right">
@@ -169,21 +173,21 @@ const Header: React.FC = () => {
                 <nav className="flex flex-col space-y-4 mt-8">
                   <Link
                     to="/"
-                    className="text-lg font-medium py-2 hover:text-primary transition-colors"
+                    className="text-lg font-medium py-2 text-primary transition-colors"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     Home
                   </Link>
                   <Link
                     to="/products"
-                    className="text-lg font-medium py-2 hover:text-primary transition-colors"
+                    className="text-lg font-medium py-2 text-primary transition-colors"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     Products
                   </Link>
                   <Link
                     to="/cart"
-                    className="text-lg font-medium py-2 hover:text-primary transition-colors"
+                    className="text-lg font-medium py-2 text-primary transition-colors"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     Cart
@@ -191,7 +195,7 @@ const Header: React.FC = () => {
                   {!isAuthenticated && (
                     <Link
                       to="/login"
-                      className="text-lg font-medium py-2 hover:text-primary transition-colors"
+                      className="text-lg font-medium py-2 text-primary transition-colors"
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       Login
