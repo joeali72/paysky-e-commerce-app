@@ -6,10 +6,10 @@ import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
 import { toast } from "@/hooks/use-toast";
 import Quantity from "@/components/Quantity";
-import useCartStore from "../store/cartStore";
-import useAuthStore from "@/modules/auth/store/authStore";
+import useAuthStore from "@/screens/auth/store/authStore";
 import { useGetProduct } from "../resources/useGetProduct";
 import Back from "@/components/Back";
+import useCartStore from "@/store/useCartStore";
 
 const ProductDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();

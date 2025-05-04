@@ -4,29 +4,18 @@ import { ShoppingCart } from "lucide-react";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { toast } from "@/hooks/use-toast";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Product } from "@/types/product.model";
-import useCartStore from "@/modules/product/store/cartStore";
 
 interface ProductCardProps {
   product: Product;
+  handleAddToCart: (e: React.MouseEvent, product: Product) => void;
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
-  const { addItem } = useCartStore();
-
-  const handleAddToCart = (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    addItem(product, 1);
-
-    toast({
-      title: "Added to cart",
-      description: `${product.title.substring(0, 30)}... added to your cart`,
-    });
-  };
-
+const ProductCard: React.FC<ProductCardProps> = ({
+  product,
+  handleAddToCart,
+}) => {
   return (
     <Link to={`/product/${product.id}`}>
       <Card className="h-full overflow-hidden transition-all duration-300 hover:shadow-lg group">
@@ -69,7 +58,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             variant="default"
             size="sm"
             className="w-full"
-            onClick={handleAddToCart}
+            onClick={(e) => handleAddToCart(e, product)}
           >
             <ShoppingCart className="h-4 w-4 mr-2" />
             Add to Cart

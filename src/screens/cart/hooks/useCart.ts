@@ -1,5 +1,5 @@
 import { toast } from "@/hooks/use-toast";
-import useCartStore from "../store/useCartStore";
+import useCartStore from "@/store/useCartStore";
 import { Product } from "@/types/product.model";
 
 export default function useCart() {
@@ -38,5 +38,12 @@ export default function useCart() {
     });
   };
 
-  return { subtotal, shipping, total, handleQuantityChange, handleRemove, items };
+  return {
+    subtotal,
+    shipping,
+    total,
+    handleQuantityChange,
+    handleRemove,
+    items,
+  };
 }

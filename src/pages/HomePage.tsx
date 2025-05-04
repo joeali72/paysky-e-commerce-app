@@ -1,7 +1,7 @@
 import React from "react";
-import Hero from "@/modules/home/components/Hero";
-import Categories from "@/modules/home/components/Categories";
-import Products from "@/modules/home/components/Products";
+import Hero from "@/screens/home/components/Hero";
+import Categories from "@/screens/home/components/Categories";
+import Products from "@/screens/home/components/Products";
 
 const HomePage: React.FC = () => {
   return (

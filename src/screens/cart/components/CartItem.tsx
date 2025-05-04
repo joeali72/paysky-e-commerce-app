@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-// import { toast } from "@/hooks/use-toast";
-// import useCartStore from "../store/useCartStore";
 import { CartItem as CartItemType } from "@/types/cart.model";
 import Quantity from "@/components/Quantity";
 import { Product } from "@/types/product.model";
@@ -24,23 +22,6 @@ const CartItem: React.FC<CartItemProps> = ({
   handleQuantityChange,
 }) => {
   const [quantity, setQuantity] = useState(item.quantity);
-//   const { updateQuantity, removeItem } = useCartStore();
-
-  //   const handleQuantityChange = (delta: number) => {
-  //     const newQuantity = quantity + delta;
-
-  //     if (newQuantity < 1) {
-  //       removeItem(item.product.id);
-  //       toast({
-  //         title: "Item removed",
-  //         description: `${item.product.title} was removed from your cart`,
-  //       });
-  //       return;
-  //     }
-
-  //     updateQuantity(item.product.id, newQuantity);
-  //     setQuantity(Math.max(1, quantity + delta));
-  //   };
 
   return (
     <div className="flex flex-col sm:flex-row items-start sm:items-center py-4 border-b">

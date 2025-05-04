@@ -1,4 +1,4 @@
-import LoginForm from "@/modules/auth/components/LoginForm";
+import LoginForm from "@/screens/auth/components/LoginForm";
 import React from "react";
 
 const LoginPage: React.FC = () => {

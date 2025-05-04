@@ -6,12 +6,12 @@ import * as z from "zod";
 import { Form } from "@/components/ui/form";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { toast } from "@/hooks/use-toast";
-import useCartStore from "@/modules/product/store/cartStore";
-import useAuthStore from "@/modules/auth/store/authStore";
-import CheckoutSummary from "@/modules/checkout/components/CheckoutSummary";
-import useCart from "@/modules/cart/hooks/useCart";
-import CheckoutForm from "@/modules/checkout/components/CheckoutForm";
-import useCheckoutSchema from "@/modules/checkout/schema/useCheckoutSchema";
+import useCartStore from "@/store/useCartStore";
+import useAuthStore from "@/screens/auth/store/authStore";
+import CheckoutSummary from "@/screens/checkout/components/CheckoutSummary";
+import useCart from "@/screens/cart/hooks/useCart";
+import CheckoutForm from "@/screens/checkout/components/CheckoutForm";
+import useCheckoutSchema from "@/screens/checkout/schema/useCheckoutSchema";
 
 const CheckoutPage: React.FC = () => {
   const navigate = useNavigate();

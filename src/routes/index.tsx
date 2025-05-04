@@ -10,7 +10,7 @@ import { ThemeProvider } from "next-themes";
 
 import Header from "@/components/layout/Header";
 import { Toaster } from "@/components/ui/toaster";
-import useAuthStore from "@/modules/auth/store/authStore";
+import useAuthStore from "@/screens/auth/store/authStore";
 import { Loader } from "@/components/ui/loader";
 
 import HomePage from "@/pages/HomePage";

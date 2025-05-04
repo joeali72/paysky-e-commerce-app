@@ -1,5 +1,5 @@
 import { useLoginAPI } from "../resources/useAuth";
-import useLoginSchema from "@/modules/auth/schema/useLoginSchema";
+import useLoginSchema from "@/screens/auth/schema/useLoginSchema";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";

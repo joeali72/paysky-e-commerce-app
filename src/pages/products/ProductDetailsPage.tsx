@@ -1,4 +1,4 @@
-import ProductDetail from "@/modules/product/components/ProductDetails";
+import ProductDetail from "@/screens/product/components/ProductDetails";
 import React from "react";
 
 const ProductDetailsPage: React.FC = () => {

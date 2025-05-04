@@ -8,13 +8,15 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Loader } from "../ui/loader";
-import { useGetProducts } from "@/modules/product/resources/useGetProducts";
-import { useGetCategories } from "@/modules/product/resources/useGetCategories";
+import { useGetProducts } from "@/screens/product/resources/useGetProducts";
+import { useGetCategories } from "@/screens/product/resources/useGetCategories";
 import ProductCard from "./ProductCard";
+import useProduct from "@/hooks/useProduct";
 
 const ProductList: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const categoryParam = searchParams.get("category") || "";
+  const { handleAddToCart } = useProduct();
 
   const {
     data: products,
@@ -86,7 +88,11 @@ const ProductList: React.FC = () => {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 min-h-[400px]">
         {products?.map((product) => (
-          <ProductCard key={product.id} product={product} />
+          <ProductCard
+            key={product.id}
+            product={product}
+            handleAddToCart={handleAddToCart}
+          />
         ))}
       </div>
 

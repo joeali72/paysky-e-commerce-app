@@ -53,7 +53,7 @@ For testing the login functionality, use:
 - `src/store` - Zustand state management
 - `src/types` - TypeScript interfaces
 - `src/lib` - Utility functions and API client
-- `src/features` - Components, Hooks, Store, Schema and Resources for every page
+- `src/screens` - Components, Hooks, Store, Schema and Resources for every page
 - `src/routes` - React Router DOM routes
 
 ## API

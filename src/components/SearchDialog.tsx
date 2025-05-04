@@ -7,7 +7,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Loader } from "lucide-react";
 import { useDebounce } from "@/lib/utils";
-import { useGetProducts } from "@/modules/product/resources/useGetProducts";
+import { useGetProducts } from "@/screens/product/resources/useGetProducts";
 import { Product } from "@/types/product.model";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";

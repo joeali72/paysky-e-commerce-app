@@ -10,8 +10,8 @@ import {
 } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { toast } from "@/hooks/use-toast";
-import useCartStore from "../store/useCartStore";
-import useAuthStore from "@/modules/auth/store/authStore";
+import useAuthStore from "@/screens/auth/store/authStore";
+import useCartStore from "@/store/useCartStore";
 
 type Props = {
   subtotal: number;

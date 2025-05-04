@@ -1,8 +1,8 @@
 import { Minus, Plus } from "lucide-react";
 import { Button } from "./ui/button";
 import { Dispatch, SetStateAction, useEffect } from "react";
-import useCartStore from "@/modules/product/store/cartStore";
 import { Product } from "@/types/product.model";
+import useCartStore from "@/store/useCartStore";
 
 type Props = {
   product?: Product;

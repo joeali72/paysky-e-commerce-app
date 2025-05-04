@@ -2,18 +2,18 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { ShoppingBag, ChevronLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import CartItem from "@/modules/cart/components/CartItem";
-import CartSummary from "@/modules/cart/components/CartSummary";
-import useCart from "@/modules/cart/hooks/useCart";
+import CartItem from "@/screens/cart/components/CartItem";
+import CartSummary from "@/screens/cart/components/CartSummary";
+import useCart from "@/screens/cart/hooks/useCart";
 
 const CartPage: React.FC = () => {
   const {
     subtotal,
     shipping,
     total,
+    items,
     handleQuantityChange,
     handleRemove,
-    items,
   } = useCart();
 
   return (

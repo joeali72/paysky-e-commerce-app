@@ -16,10 +16,10 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
-import useAuthStore from "@/modules/auth/store/authStore";
+import useAuthStore from "@/screens/auth/store/authStore";
 import SearchDialog from "../SearchDialog";
 import { Badge } from "../ui/badge";
-import useCartStore from "@/modules/product/store/cartStore";
+import useCartStore from "@/store/useCartStore";
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
