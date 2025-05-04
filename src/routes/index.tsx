@@ -32,8 +32,8 @@ const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({
   if (!isAuthenticated && window.location.pathname !== "/login") {
     return <Navigate to="/login" replace />;
   }
-
-  if (isAuthenticated && window.location.pathname === " /login") {
+  
+  if (isAuthenticated && window.location.pathname === "/login") {
     return <Navigate to="/" replace />;
   }
 
