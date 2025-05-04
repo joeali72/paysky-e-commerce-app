@@ -32,7 +32,7 @@ const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({
   if (!isAuthenticated && window.location.pathname !== "/login") {
     return <Navigate to="/login" replace />;
   }
-  
+
   if (isAuthenticated && window.location.pathname === "/login") {
     return <Navigate to="/" replace />;
   }
@@ -61,7 +61,6 @@ const Layout: React.FC = () => {
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      staleTime: 1000 * 60 * 5, // 5 minutes
       refetchOnWindowFocus: false,
     },
   },
